@@ -4,7 +4,7 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8080
 
 // Define file paths for words
 const verbFilePath = path.join(__dirname, 'verbs.txt');
@@ -68,6 +68,8 @@ app.get('/api/classify', (req, res) => {
     // Check if the word exists in any of the preloaded lists
     if (wordLists.adjectives.includes(word)) {
         classification = "adjective";
+    }else if (wordLists.verbs.includes(word) && wordLists.nouns.includes(word)) {
+        classification = "noun-verb";
     } else if (wordLists.verbs.includes(word)) {
         classification = "verb";
     } else if (wordLists.nouns.includes(word)) {

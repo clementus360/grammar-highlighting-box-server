@@ -1,0 +1,13 @@
+runtime: nodejs20
+
+# App Engine automatically scales your app based on incoming traffic.
+# You can specify automatic scaling, basic scaling, or manual scaling.
+# For more information, see:
+# https://cloud.google.com/appengine/docs/standard/nodejs/config/appref
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 2
+
+env_variables:
+  PORT: 8080
