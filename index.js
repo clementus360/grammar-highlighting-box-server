@@ -12,7 +12,7 @@ const nounFilePath = path.join(__dirname, 'nouns.txt');
 const adjectiveFilePath = path.join(__dirname, 'adjectives.txt');
 
 // Define the allowed origins (replace '*' with your client's actual origin)
-const allowedOrigins = ['http://example.com', 'http://localhost:3000', 'http://localhost:5500', 'http://127.0.0.1:5500']; 
+const allowedOrigins = ['http://example.com', 'http://localhost:3000', 'http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:5501', 'http://127.0.0.1:5501']; 
 
 // Configure CORS with specific options
 const corsOptions = {
@@ -68,7 +68,7 @@ app.get('/api/classify', (req, res) => {
     // Check if the word exists in any of the preloaded lists
     if (wordLists.adjectives.includes(word)) {
         classification = "adjective";
-    }else if (wordLists.verbs.includes(word) && wordLists.nouns.includes(word)) {
+    } else if (wordLists.verbs.includes(word) && wordLists.nouns.includes(word)) {
         classification = "noun-verb";
     } else if (wordLists.verbs.includes(word)) {
         classification = "verb";
